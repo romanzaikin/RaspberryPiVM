@@ -11,8 +11,11 @@ Lite:
 To configure vm all you have to do is:
 
 1. download the following images:
+
 1.1. http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-07-05/2017-07-05-raspbian-jessie-lite.zip
+
 1.2. http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-04-10/2017-04-10-raspbian-jessie.zip
+
 2. apt-get install qemu-system
 3. chmod +x boot.sh
 4. chmod +x boot_ui.sh
