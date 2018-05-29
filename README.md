@@ -25,17 +25,30 @@ To run the vm you have 2 options:
 1. run boot_ui.sh to run a Raspberry Pi machine with a desktop.
 2. run boot.sh to run a Raspberry Pi lite Machine.
 
-both contains the default username/password of rasppbery pi which is pi/raspberry.
+Both contains the default username/password of rasppbery pi which is pi/raspberry.
 
-to connect to the machine make sure ssh is running by using:
+To connect to the machine make sure ssh is running by using:
 
 ```
 service ssh start
 ```
 
-from the host machine you can connect to the machine by using the following command:
+From the host machine you can connect to the machine by using the following command:
 
 ```
 ssh pi@127.0.0.1 -p 2222
 ```
 
+On the other hand you can create a tunnel and allow remote machine to connect thru.
+
+1. on the host machine use the following command to create the tunnel:
+```
+ssh -N -L 1337:127.0.0.1:22 pi@127.0.0.1 -p 2222 -g
+```
+
+2. on the remote machine just connect to the host machine ip and port 1337
+```
+ssh pi@192.168.56.101 -p 1337
+```
+
+Have fun,
