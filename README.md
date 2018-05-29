@@ -19,11 +19,15 @@ To configure vm all you have to do is:
 2. apt-get install qemu-system
 3. chmod +x boot.sh
 4. chmod +x boot_ui.sh
+5. chmod +x boot_ui_net.sh
+6. chmod +x boot_net.sh
 
-To run the vm you have 2 options:
+To run the vm you have 4 options:
 
 1. run boot_ui.sh to run a Raspberry Pi machine with a desktop.
-2. run boot.sh to run a Raspberry Pi lite Machine.
+2. run boot_ui_net.sh to run a Raspberry Pi machine with a desktop and network.
+3. run boot.sh to run a Raspberry Pi lite Machine.
+4. run boot.sh to run a Raspberry Pi lite Machine and network.
 
 Both contains the default username/password of rasppbery pi which is pi/raspberry.
 
@@ -50,5 +54,26 @@ ssh -N -L 1337:127.0.0.1:22 pi@127.0.0.1 -p 2222 -g
 ```
 ssh pi@192.168.56.101 -p 1337
 ```
+
+If you want to connect your raspberry pi to the internet via the host machine you will have to pass the network thru you host machine to the vm
+
+1. install tap interface on your host machine
+
+1.1.apt-get install uml-utilities							# tunctl tool 
+
+1.2. tunctl -t tap0 -u root									# start tap0 interface and assign it do id 0(root)
+
+1.3. ifconfig tap0 172.30.0.1/24							# set ip address on the tap0 interface
+
+1.4. sysctl net.ipv4.ip_forward=1							# forward the traffic back to the interface
+
+1.5. iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE	# start the nat table
+
+2. run raspberry pi image with network *_net.sh and then configure the interface in the raspberry pi image
+
+2.1. ifconfig eth0 172.30.0.2/24
+
+2.2. route add default gw 172.30.0.1
+
 
 Have fun,
