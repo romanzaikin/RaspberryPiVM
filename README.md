@@ -75,5 +75,7 @@ If you want to connect your raspberry pi to the internet via the host machine yo
 
 2.2. route add default gw 172.30.0.1
 
+2.3. add nameserver 1.1.1.1 to /etc/resolv.conf				# configure DNS server 
+
 
 Have fun,
