@@ -10,7 +10,7 @@ Lite:
 
 To configure vm all you have to do is:
 
-1. download the following images:
+1. download the following images files and place it in same folder with this git project.
 
 1.1. http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-07-05/2017-07-05-raspbian-jessie-lite.zip
 
@@ -77,5 +77,8 @@ If you want to connect your raspberry pi to the internet via the host machine yo
 
 2.3. add nameserver 1.1.1.1 to /etc/resolv.conf				# configure DNS server 
 
+
+* if you have problem with keybaord layout, here is a nice solution:
+https://thepihut.com/blogs/raspberry-pi-tutorials/25556740-changing-the-raspberry-pi-keyboard-layout
 
 Have fun,
